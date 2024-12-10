@@ -7,7 +7,8 @@
     "build": "tsc",
     "test": "jest",
     "test:watch": "jest --watch",
-    "size": "gzip-size dist/index.js"
+    "size": "gzip-size dist/index.js",
+    "stats": "curl https://api.npmjs.org/downloads/point/last-week/chronospan"
   },
   "files": [
     "dist"
