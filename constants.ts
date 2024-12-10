@@ -1,0 +1,3 @@
+export const MINUTE_IN_SECONDS = 60000;
+export const HOUR_IN_SECONDS = 3600000;
+export const DAY_IN_SECONDS = 86400000;
