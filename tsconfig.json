@@ -5,8 +5,26 @@
     "declaration": true,
     "outDir": "./dist",
     "strict": true,
-    "typeRoots": ["./node_modules/@types"]
+    "resolveJsonModule": true,
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
+    "baseUrl": ".",
+    "esModuleInterop": true,
+    "paths": {
+      "@locales/*": [
+        "./locales/*"
+      ],
+      "@constants": [
+        "./src/constants"
+      ]
+    }
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/__tests__/*"]
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/__tests__/*"
+  ]
 }
