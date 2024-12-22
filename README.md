@@ -20,24 +20,15 @@
 
 ## Installation
 
-````sh
+```sh
 yarn add chronospan
-
-- A lightweight date utility to format dates in a human-readable way (e.g., "2 hours ago", "Tomorrow", "Last week").
-- A gzipped size of ~221 B.
-- Full Typescript support.
-
-## Features
-
-- Accepts a Date or timestamp.
-- Outputs phrases like "2 minutes ago" or "in 5 days".
-- Customizable localization (e.g., English, Spanish, etc.).
+```
 
 ## Installation
 
 ```sh
 yarn install chronospan
-````
+```
 
 ## Usage
 
