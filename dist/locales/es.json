@@ -1,7 +1,19 @@
 {
     "justNow": "justo ahora",
-    "minutesAgo": "hace {{count}} minutos",
-    "hoursAgo": "hace {{count}} horas",
-    "daysAgo": "hace {{count}} días",
-    "weeksAgo": "hace {{count}} semanas"
+    "minutesAgo": {
+        "one": "hace {{count}} minuto",
+        "other": "hace {{count}} minutos"
+    },
+    "hoursAgo": {
+        "one": "hace {{count}} hora",
+        "other": "hace {{count}} horas"
+    },
+    "daysAgo": {
+        "one": "hace {{count}} día",
+        "other": "hace {{count}} días"
+    },
+    "weeksAgo": {
+        "one": "hace {{count}} semana",
+        "other": "hace {{count}} semanas"
+    }
 }

@@ -5,8 +5,9 @@
     ],
     "target": "ES6",
     "module": "commonjs",
-    "declaration": true,
     "outDir": "./dist",
+    "declaration": true,
+    "declarationMap": true,
     "strict": true,
     "resolveJsonModule": true,
     "typeRoots": [

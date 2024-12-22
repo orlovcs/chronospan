@@ -1,7 +1,19 @@
 {
     "justNow": "just now",
-    "minutesAgo": "{{count}} minutes ago",
-    "hoursAgo": "{{count}} hours ago",
-    "daysAgo": "{{count}} days ago",
-    "weeksAgo": "{{count}} weeks ago"
+    "minutesAgo": {
+        "one": "{{count}} minute ago",
+        "other": "{{count}} minutes ago"
+    },
+    "hoursAgo": {
+        "one": "{{count}} hour ago",
+        "other": "{{count}} hours ago"
+    },
+    "daysAgo": {
+        "one": "{{count}} day ago",
+        "other": "{{count}} days ago"
+    },
+    "weeksAgo": {
+        "one": "{{count}} week ago",
+        "other": "{{count}} weeks ago"
+    }
 }
