@@ -1,3 +1,4 @@
-declare const formatDate: (date: Date) => string;
+declare const timeAgo: (date: Date) => string;
 declare const setLanguage: (lang: string) => void;
-export { formatDate, setLanguage };
+export { setLanguage, timeAgo };
+

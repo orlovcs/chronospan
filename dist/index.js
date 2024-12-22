@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setLanguage = exports.formatDate = void 0;
+exports.setLanguage = exports.timeAgo = void 0;
 const _constants_1 = require("@constants");
 const en_json_1 = __importDefault(require("@locales/en.json"));
 const es_json_1 = __importDefault(require("@locales/es.json"));
@@ -15,7 +15,7 @@ i18next_1.default.init({
         es: { translation: es_json_1.default },
     },
 });
-const formatDate = (date) => {
+const timeAgo = (date) => {
     const now = new Date();
     const diff = now.getTime() - date.getTime();
     const diffInMinutes = Math.floor(diff / _constants_1.MINUTE_IN_SECONDS);
@@ -39,7 +39,7 @@ const formatDate = (date) => {
         });
     return date.toLocaleDateString();
 };
-exports.formatDate = formatDate;
+exports.timeAgo = timeAgo;
 const setLanguage = (lang) => {
     i18next_1.default.changeLanguage(lang);
 };

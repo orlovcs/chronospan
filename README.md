@@ -42,10 +42,10 @@ yarn install chronospan
 ## Usage
 
 ```ts
-import { formatDate, setLanguage } from "chronospan";
+import { timeAgo, setLanguage } from "chronospan";
 
 const date = new Date(Date.now() - 60000); // 1 minute ago
-console.log(formatDate(date)); // Output: "1 minute ago"
+console.log(timeAgo(date)); // Output: "1 minute ago"
 ```
 
 ## License

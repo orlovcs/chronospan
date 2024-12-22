@@ -2,7 +2,7 @@ import { MINUTE_IN_SECONDS } from "@constants";
 import en from "@locales/en.json";
 import es from "@locales/es.json";
 import i18next from "i18next";
-
+ 
 i18next.init({
   lng: "en",
   resources: {
@@ -11,7 +11,7 @@ i18next.init({
   },
 });
 
-const formatDate = (date: Date): string => {
+const timeAgo = (date: Date): string => {
   const now = new Date();
   const diff = now.getTime() - date.getTime();
   const diffInMinutes = Math.floor(diff / MINUTE_IN_SECONDS);
@@ -44,4 +44,5 @@ const setLanguage = (lang: string): void => {
   i18next.changeLanguage(lang);
 };
 
-export { formatDate, setLanguage };
+export { setLanguage, timeAgo };
+
