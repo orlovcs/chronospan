@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setLanguage = exports.timeAgo = void 0;
+exports.timeAgo = exports.setLanguage = void 0;
 const _constants_1 = require("@constants");
 const en_json_1 = __importDefault(require("@locales/en.json"));
 const es_json_1 = __importDefault(require("@locales/es.json"));
