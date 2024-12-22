@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - README.md
+      - CHANGELOG.md
+      - package.json
+      - yarn.lock
   pull_request:
     branches:
       - main
@@ -42,8 +47,25 @@ jobs:
       - run: yarn install
       - run: yarn test
 
-  publish-npm:
+  version-bump:
     needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: yarn install
+      - run: yarn standard-version
+      - run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git push --follow-tags origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  publish-npm:
+    needs: version-bump
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -52,7 +74,6 @@ jobs:
           node-version: 20
           registry-url: https://registry.npmjs.org/
       - run: yarn install
-      - run: yarn standard-version
       - run: yarn publish --non-interactive
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
