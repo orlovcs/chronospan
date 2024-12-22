@@ -16,7 +16,7 @@
     "esModuleInterop": true,
     "paths": {
       "@locales/*": [
-        "./locales/*"
+        "./src/locales/*"
       ],
       "@constants": [
         "./src/constants"

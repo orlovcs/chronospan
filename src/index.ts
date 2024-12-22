@@ -20,11 +20,22 @@ const formatDate = (date: Date): string => {
 
   if (diffInMinutes < 1) return i18next.t("justNow");
   if (diffInMinutes < 60)
-    return i18next.t("minutesAgo", { count: diffInMinutes });
-  if (diffInHours < 24) return i18next.t("hoursAgo", { count: diffInHours });
-  if (diffInDays < 7) return i18next.t("daysAgo", { count: diffInDays });
+    return i18next.t(
+      diffInMinutes === 1 ? "minutesAgo.one" : "minutesAgo.other",
+      { count: diffInMinutes }
+    );
+  if (diffInHours < 24)
+    return i18next.t(diffInHours === 1 ? "hoursAgo.one" : "hoursAgo.other", {
+      count: diffInHours,
+    });
+  if (diffInDays < 7)
+    return i18next.t(diffInDays === 1 ? "daysAgo.one" : "daysAgo.other", {
+      count: diffInDays,
+    });
   if (diffInDays < 30)
-    return i18next.t("weeksAgo", { count: Math.floor(diffInDays / 7) });
+    return i18next.t(diffInDays === 1 ? "weeksAgo.one" : "weeksAgo.other", {
+      count: Math.floor(diffInDays / 7),
+    });
 
   return date.toLocaleDateString();
 };

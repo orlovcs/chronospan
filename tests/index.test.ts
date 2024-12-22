@@ -18,6 +18,6 @@ describe("formatDate", () => {
   it("should format date in Spanish", () => {
     setLanguage("es");
     const date = new Date(Date.now() - 60000); // 1 minute ago
-    expect(formatDate(date)).toBe("hace 1 minutos");
+    expect(formatDate(date)).toBe("hace 1 minuto");
   });
 });
