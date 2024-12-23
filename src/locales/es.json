@@ -51,5 +51,7 @@
   "millenniaUntil": {
     "one": "en {{count}} milenio",
     "other": "en {{count}} milenios"
-  }
+  },
+    "yesterday": "ayer",
+  "tomorrow": "mañana"
 }
