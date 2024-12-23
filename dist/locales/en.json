@@ -53,5 +53,17 @@
         "other": "in {{count}} millennia"
     },
     "yesterday": "yesterday",
-    "tomorrow": "tomorrow"
+    "tomorrow": "tomorrow",
+    "lastWeek": "last week",
+    "lastMonth": "last month",
+    "lastYear": "last year",
+    "lastDecade": "last decade",
+    "lastCentury": "last century",
+    "lastMillennium": "last millennium",
+    "nextWeek": "next week",
+    "nextMonth": "next month",
+    "nextYear": "next year",
+    "nextDecade": "next decade",
+    "nextCentury": "next century",
+    "nextMillennium": "next millennium"
 }

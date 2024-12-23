@@ -15,13 +15,28 @@ i18next_1.default.init({
         es: { translation: es_json_1.default },
     },
 });
-const timeAgo = (date) => {
+const timeAgo = (date, fuzzy) => {
     const input = new Date(date || new Date());
     const now = new Date();
     const diff = now.getTime() - input.getTime();
     const diffInMinutes = Math.floor(diff / _constants_1.MINUTE_IN_SECONDS);
     const diffInHours = Math.floor(diff / 3600000);
     const diffInDays = Math.floor(diff / 86400000);
+    if (fuzzy) {
+        if (diffInDays === 1)
+            return i18next_1.default.t("yesterday");
+        if (diffInDays < 7)
+            return i18next_1.default.t("lastWeek");
+        if (diffInDays < 30)
+            return i18next_1.default.t("lastMonth");
+        if (diffInDays < 365)
+            return i18next_1.default.t("lastYear");
+        if (diffInDays < 3650)
+            return i18next_1.default.t("lastDecade");
+        if (diffInDays < 36500)
+            return i18next_1.default.t("lastCentury");
+        return i18next_1.default.t("lastMillennium");
+    }
     if (diffInMinutes < 1)
         return i18next_1.default.t("justNow");
     if (diffInMinutes < 60)
@@ -41,13 +56,28 @@ const timeAgo = (date) => {
     return input.toLocaleDateString();
 };
 exports.timeAgo = timeAgo;
-const timeUntil = (date) => {
+const timeUntil = (date, fuzzy) => {
     const input = new Date(date || new Date());
     const now = new Date();
     const diff = input.getTime() - now.getTime();
     const diffInMinutes = Math.floor(diff / _constants_1.MINUTE_IN_SECONDS);
     const diffInHours = Math.floor(diff / 3600000);
     const diffInDays = Math.floor(diff / 86400000);
+    if (fuzzy) {
+        if (diffInDays === 1)
+            return i18next_1.default.t("tomorrow");
+        if (diffInDays < 7)
+            return i18next_1.default.t("nextWeek");
+        if (diffInDays < 30)
+            return i18next_1.default.t("nextMonth");
+        if (diffInDays < 365)
+            return i18next_1.default.t("nextYear");
+        if (diffInDays < 3650)
+            return i18next_1.default.t("nextDecade");
+        if (diffInDays < 36500)
+            return i18next_1.default.t("nextCentury");
+        return i18next_1.default.t("nextMillennium");
+    }
     if (diffInMinutes < 1)
         return i18next_1.default.t("justNow");
     if (diffInMinutes < 60)

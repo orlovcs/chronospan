@@ -52,6 +52,18 @@
     "one": "en {{count}} milenio",
     "other": "en {{count}} milenios"
   },
-    "yesterday": "ayer",
-  "tomorrow": "mañana"
+  "yesterday": "ayer",
+  "tomorrow": "mañana",
+  "lastWeek": "la semana pasada",
+  "lastMonth": "el mes pasado",
+  "lastYear": "el año pasado",
+  "lastDecade": "la década pasada",
+  "lastCentury": "el siglo pasado",
+  "lastMillennium": "el milenio pasado",
+  "nextWeek": "la próxima semana",
+  "nextMonth": "el próximo mes",
+  "nextYear": "el próximo año",
+  "nextDecade": "la próxima década",
+  "nextCentury": "el próximo siglo",
+  "nextMillennium": "el próximo milenio"
 }

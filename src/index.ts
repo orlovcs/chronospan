@@ -11,13 +11,23 @@ i18next.init({
   },
 });
 
-const timeAgo = (date?: Date | string): string => {
+const timeAgo = (date?: Date | string, fuzzy?: boolean): string => {
   const input = new Date(date || new Date());
   const now = new Date();
   const diff = now.getTime() - input.getTime();
   const diffInMinutes = Math.floor(diff / MINUTE_IN_SECONDS);
   const diffInHours = Math.floor(diff / 3600000);
   const diffInDays = Math.floor(diff / 86400000);
+
+  if (fuzzy) {
+    if (diffInDays === 1) return i18next.t("yesterday");
+    if (diffInDays < 7) return i18next.t("lastWeek");
+    if (diffInDays < 30) return i18next.t("lastMonth");
+    if (diffInDays < 365) return i18next.t("lastYear");
+    if (diffInDays < 3650) return i18next.t("lastDecade");
+    if (diffInDays < 36500) return i18next.t("lastCentury");
+    return i18next.t("lastMillennium");
+  }
 
   if (diffInMinutes < 1) return i18next.t("justNow");
   if (diffInMinutes < 60)
@@ -41,13 +51,23 @@ const timeAgo = (date?: Date | string): string => {
   return input.toLocaleDateString();
 };
 
-const timeUntil = (date?: Date | string): string => {
+const timeUntil = (date?: Date | string, fuzzy?: boolean): string => {
   const input = new Date(date || new Date());
   const now = new Date();
   const diff = input.getTime() - now.getTime();
   const diffInMinutes = Math.floor(diff / MINUTE_IN_SECONDS);
   const diffInHours = Math.floor(diff / 3600000);
   const diffInDays = Math.floor(diff / 86400000);
+
+if (fuzzy) {
+    if (diffInDays === 1) return i18next.t("tomorrow");
+    if (diffInDays < 7) return i18next.t("nextWeek");
+    if (diffInDays < 30) return i18next.t("nextMonth");
+    if (diffInDays < 365) return i18next.t("nextYear");
+    if (diffInDays < 3650) return i18next.t("nextDecade");
+    if (diffInDays < 36500) return i18next.t("nextCentury");
+    return i18next.t("nextMillennium");
+}
 
   if (diffInMinutes < 1) return i18next.t("justNow");
   if (diffInMinutes < 60)
