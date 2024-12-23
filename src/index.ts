@@ -11,6 +11,13 @@ i18next.init({
   },
 });
 
+/**
+ * Returns a human-readable string representing the time elapsed since the given date.
+ *
+ * @param date - The date to compare against the current time. Can be a Date object or a string.
+ * @param fuzzy - If true, returns a fuzzy time description (e.g., "yesterday", "last week").
+ * @returns A string representing the time elapsed since the given date.
+ */
 const timeAgo = (date?: Date | string, fuzzy?: boolean): string => {
   const input = new Date(date || new Date());
   const now = new Date();
@@ -51,6 +58,13 @@ const timeAgo = (date?: Date | string, fuzzy?: boolean): string => {
   return input.toLocaleDateString();
 };
 
+/**
+ * Calculates the time until a given date and returns a localized string representation.
+ *
+ * @param date - The target date, either as a Date object or a string. Defaults to the current date if not provided.
+ * @param fuzzy - If true, returns a fuzzy representation (e.g., "tomorrow", "next week"). Defaults to false.
+ * @returns A localized string representing the time until the given date.
+ */
 const timeUntil = (date?: Date | string, fuzzy?: boolean): string => {
   const input = new Date(date || new Date());
   const now = new Date();
@@ -59,7 +73,7 @@ const timeUntil = (date?: Date | string, fuzzy?: boolean): string => {
   const diffInHours = Math.floor(diff / 3600000);
   const diffInDays = Math.floor(diff / 86400000);
 
-if (fuzzy) {
+  if (fuzzy) {
     if (diffInDays === 1) return i18next.t("tomorrow");
     if (diffInDays < 7) return i18next.t("nextWeek");
     if (diffInDays < 30) return i18next.t("nextMonth");
@@ -67,7 +81,7 @@ if (fuzzy) {
     if (diffInDays < 3650) return i18next.t("nextDecade");
     if (diffInDays < 36500) return i18next.t("nextCentury");
     return i18next.t("nextMillennium");
-}
+  }
 
   if (diffInMinutes < 1) return i18next.t("justNow");
   if (diffInMinutes < 60)
@@ -123,16 +137,33 @@ if (fuzzy) {
   );
 };
 
-const fromTime = (date?: Date | string): string => {
+/**
+ * Converts a given date to a human-readable relative time string.
+ *
+ * @param date - The date to convert. Can be a `Date` object or a string representation of a date.
+ *               If not provided, the current date and time will be used.
+ * @param fuzzy - If `true`, the returned string will be a fuzzy representation of the time difference.
+ *                If `false` or not provided, the returned string will be a precise representation.
+ * @returns A string representing the relative time difference between the given date and the current date.
+ *          If the given date is in the past, the string will indicate the time ago.
+ *          If the given date is in the future, the string will indicate the time until.
+ */
+const fromTime = (date?: Date | string, fuzzy?: boolean): string => {
   const input = new Date(date || new Date());
   const now = new Date();
   if (input.getTime() < now.getTime()) {
-    return timeAgo(input);
+    return timeAgo(input, fuzzy);
   } else {
-    return timeUntil(input);
+    return timeUntil(input, fuzzy);
   }
 };
 
+/**
+ * Changes the current language of the i18next instance.
+ *
+ * @param lang - The language code to set (e.g., 'en', 'fr', 'de').
+ * @returns void
+ */
 const setLanguage = (lang: string): void => {
   i18next.changeLanguage(lang);
 };
