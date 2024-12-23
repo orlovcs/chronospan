@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.timeUntil = exports.timeAgo = exports.setLanguage = void 0;
+exports.timeUntil = exports.timeAgo = exports.setLanguage = exports.fromTime = void 0;
 const _constants_1 = require("@constants");
 const en_json_1 = __importDefault(require("@locales/en.json"));
 const es_json_1 = __importDefault(require("@locales/es.json"));
@@ -16,8 +16,9 @@ i18next_1.default.init({
     },
 });
 const timeAgo = (date) => {
+    const input = new Date(date || new Date());
     const now = new Date();
-    const diff = now.getTime() - date.getTime();
+    const diff = now.getTime() - input.getTime();
     const diffInMinutes = Math.floor(diff / _constants_1.MINUTE_IN_SECONDS);
     const diffInHours = Math.floor(diff / 3600000);
     const diffInDays = Math.floor(diff / 86400000);
@@ -37,12 +38,13 @@ const timeAgo = (date) => {
         return i18next_1.default.t(diffInDays === 1 ? "weeksAgo.one" : "weeksAgo.other", {
             count: Math.floor(diffInDays / 7),
         });
-    return date.toLocaleDateString();
+    return input.toLocaleDateString();
 };
 exports.timeAgo = timeAgo;
 const timeUntil = (date) => {
+    const input = new Date(date || new Date());
     const now = new Date();
-    const diff = date.getTime() - now.getTime();
+    const diff = input.getTime() - now.getTime();
     const diffInMinutes = Math.floor(diff / _constants_1.MINUTE_IN_SECONDS);
     const diffInHours = Math.floor(diff / 3600000);
     const diffInDays = Math.floor(diff / 86400000);
@@ -83,6 +85,17 @@ const timeUntil = (date) => {
     });
 };
 exports.timeUntil = timeUntil;
+const fromTime = (date) => {
+    const input = new Date(date || new Date());
+    const now = new Date();
+    if (input.getTime() < now.getTime()) {
+        return timeAgo(input);
+    }
+    else {
+        return timeUntil(input);
+    }
+};
+exports.fromTime = fromTime;
 const setLanguage = (lang) => {
     i18next_1.default.changeLanguage(lang);
 };

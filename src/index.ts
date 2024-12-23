@@ -11,9 +11,10 @@ i18next.init({
   },
 });
 
-const timeAgo = (date: Date): string => {
+const timeAgo = (date?: Date | string): string => {
+  const input = new Date(date || new Date());
   const now = new Date();
-  const diff = now.getTime() - date.getTime();
+  const diff = now.getTime() - input.getTime();
   const diffInMinutes = Math.floor(diff / MINUTE_IN_SECONDS);
   const diffInHours = Math.floor(diff / 3600000);
   const diffInDays = Math.floor(diff / 86400000);
@@ -37,12 +38,13 @@ const timeAgo = (date: Date): string => {
       count: Math.floor(diffInDays / 7),
     });
 
-  return date.toLocaleDateString();
+  return input.toLocaleDateString();
 };
 
-const timeUntil = (date: Date): string => {
+const timeUntil = (date?: Date | string): string => {
+  const input = new Date(date || new Date());
   const now = new Date();
-  const diff = date.getTime() - now.getTime();
+  const diff = input.getTime() - now.getTime();
   const diffInMinutes = Math.floor(diff / MINUTE_IN_SECONDS);
   const diffInHours = Math.floor(diff / 3600000);
   const diffInDays = Math.floor(diff / 86400000);
@@ -101,8 +103,18 @@ const timeUntil = (date: Date): string => {
   );
 };
 
+const fromTime = (date?: Date | string): string => {
+  const input = new Date(date || new Date());
+  const now = new Date();
+  if (input.getTime() < now.getTime()) {
+    return timeAgo(input);
+  } else {
+    return timeUntil(input);
+  }
+};
+
 const setLanguage = (lang: string): void => {
   i18next.changeLanguage(lang);
 };
 
-export { setLanguage, timeAgo, timeUntil };
+export { fromTime, setLanguage, timeAgo, timeUntil };
