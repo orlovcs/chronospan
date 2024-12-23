@@ -15,5 +15,42 @@
   "weeksAgo": {
     "one": "{{count}} week ago",
     "other": "{{count}} weeks ago"
+  },
+
+  "minutesUntil": {
+    "one": "in {{count}} minute",
+    "other": "in {{count}} minutes"
+  },
+  "hoursUntil": {
+    "one": "in {{count}} hour",
+    "other": "in {{count}} hours"
+  },
+  "daysUntil": {
+    "one": "in {{count}} day",
+    "other": "in {{count}} days"
+  },
+  "weeksUntil": {
+    "one": "in {{count}} week",
+    "other": "in {{count}} weeks"
+  },
+  "monthsUntil": {
+    "one": "in {{count}} month",
+    "other": "in {{count}} months"
+  },
+  "yearsUntil": {
+    "one": "in {{count}} year",
+    "other": "in {{count}} years"
+  },
+  "decadesUntil": {
+    "one": "in {{count}} decade",
+    "other": "in {{count}} decades"
+  },
+  "centuriesUntil": {
+    "one": "in {{count}} century",
+    "other": "in {{count}} centuries"
+  },
+  "millenniaUntil": {
+    "one": "in {{count}} millennium",
+    "other": "in {{count}} millennia"
   }
 }
