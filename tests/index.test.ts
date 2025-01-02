@@ -15,6 +15,8 @@ describe("timeAgo", () => {
     expect(timeAgo(date)).toBe("1 minute ago");
   });
 
+  /* tests in Spanish */
+
   it("should format date in Spanish", () => {
     setLanguage("es");
     const date = new Date(Date.now() - 60000); // 1 minute ago
@@ -41,6 +43,8 @@ describe("timeUntil", () => {
     const date = new Date(Date.now() + 2 * 60000); // 2 minutes from now
     expect(timeUntil(date)).toBe("in 2 minutes");
   });
+
+  /* tests in Spanish */
 
   it("should format date in Spanish", () => {
     setLanguage("es");
@@ -82,6 +86,8 @@ describe("fromTime", () => {
     const date = new Date(Date.now() + 60000); // 1 minute from now
     expect(fromTime(date)).toBe("in 1 minute");
   });
+
+  /* tests in Spanish */
 
   it("should format past date in Spanish", () => {
     setLanguage("es");
