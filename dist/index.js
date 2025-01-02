@@ -27,38 +27,38 @@ const timeAgo = (date, fuzzy) => {
     const now = new Date();
     const diff = now.getTime() - input.getTime();
     const diffInMinutes = Math.floor(diff / _constants_1.MINUTE_IN_SECONDS);
-    const diffInHours = Math.floor(diff / 3600000);
-    const diffInDays = Math.floor(diff / 86400000);
+    const diffInHours = Math.floor(diff / _constants_1.HOUR_IN_SECONDS);
+    const diffInDays = Math.floor(diff / _constants_1.DAY_IN_SECONDS);
     if (fuzzy) {
         if (diffInDays === 1)
             return i18next_1.default.t("yesterday");
-        if (diffInDays < 7)
+        if (diffInDays < _constants_1.WEEK_IN_DAYS)
             return i18next_1.default.t("lastWeek");
-        if (diffInDays < 30)
+        if (diffInDays < _constants_1.MONTH_IN_DAYS)
             return i18next_1.default.t("lastMonth");
-        if (diffInDays < 365)
+        if (diffInDays < _constants_1.YEAR_IN_DAYS)
             return i18next_1.default.t("lastYear");
-        if (diffInDays < 3650)
+        if (diffInDays < _constants_1.DECADE_IN_DAYS)
             return i18next_1.default.t("lastDecade");
-        if (diffInDays < 36500)
+        if (diffInDays < _constants_1.CENTURY_IN_DAYS)
             return i18next_1.default.t("lastCentury");
         return i18next_1.default.t("lastMillennium");
     }
     if (diffInMinutes < 1)
         return i18next_1.default.t("justNow");
-    if (diffInMinutes < 60)
+    if (diffInMinutes < _constants_1.HOUR_IN_SECONDS / _constants_1.MINUTE_IN_SECONDS)
         return i18next_1.default.t(diffInMinutes === 1 ? "minutesAgo.one" : "minutesAgo.other", { count: diffInMinutes });
-    if (diffInHours < 24)
+    if (diffInHours < _constants_1.DAY_IN_SECONDS / _constants_1.HOUR_IN_SECONDS)
         return i18next_1.default.t(diffInHours === 1 ? "hoursAgo.one" : "hoursAgo.other", {
             count: diffInHours,
         });
-    if (diffInDays < 7)
+    if (diffInDays < _constants_1.WEEK_IN_DAYS)
         return i18next_1.default.t(diffInDays === 1 ? "daysAgo.one" : "daysAgo.other", {
             count: diffInDays,
         });
-    if (diffInDays < 30)
+    if (diffInDays < _constants_1.MONTH_IN_DAYS)
         return i18next_1.default.t(diffInDays === 1 ? "weeksAgo.one" : "weeksAgo.other", {
-            count: Math.floor(diffInDays / 7),
+            count: Math.floor(diffInDays / _constants_1.WEEK_IN_DAYS),
         });
     return input.toLocaleDateString();
 };
@@ -75,57 +75,57 @@ const timeUntil = (date, fuzzy) => {
     const now = new Date();
     const diff = input.getTime() - now.getTime();
     const diffInMinutes = Math.floor(diff / _constants_1.MINUTE_IN_SECONDS);
-    const diffInHours = Math.floor(diff / 3600000);
-    const diffInDays = Math.floor(diff / 86400000);
+    const diffInHours = Math.floor(diff / _constants_1.HOUR_IN_SECONDS);
+    const diffInDays = Math.floor(diff / _constants_1.DAY_IN_SECONDS);
     if (fuzzy) {
         if (diffInDays === 1)
             return i18next_1.default.t("tomorrow");
-        if (diffInDays < 7)
+        if (diffInDays < _constants_1.WEEK_IN_DAYS)
             return i18next_1.default.t("nextWeek");
-        if (diffInDays < 30)
+        if (diffInDays < _constants_1.MONTH_IN_DAYS)
             return i18next_1.default.t("nextMonth");
-        if (diffInDays < 365)
+        if (diffInDays < _constants_1.YEAR_IN_DAYS)
             return i18next_1.default.t("nextYear");
-        if (diffInDays < 3650)
+        if (diffInDays < _constants_1.DECADE_IN_DAYS)
             return i18next_1.default.t("nextDecade");
-        if (diffInDays < 36500)
+        if (diffInDays < _constants_1.CENTURY_IN_DAYS)
             return i18next_1.default.t("nextCentury");
         return i18next_1.default.t("nextMillennium");
     }
     if (diffInMinutes < 1)
         return i18next_1.default.t("justNow");
-    if (diffInMinutes < 60)
+    if (diffInMinutes < _constants_1.HOUR_IN_SECONDS / _constants_1.MINUTE_IN_SECONDS)
         return i18next_1.default.t(diffInMinutes === 1 ? "minutesUntil.one" : "minutesUntil.other", { count: diffInMinutes });
-    if (diffInHours < 24)
+    if (diffInHours < _constants_1.DAY_IN_SECONDS / _constants_1.HOUR_IN_SECONDS)
         return i18next_1.default.t(diffInHours === 1 ? "hoursUntil.one" : "hoursUntil.other", {
             count: diffInHours,
         });
-    if (diffInDays < 7)
+    if (diffInDays < _constants_1.WEEK_IN_DAYS)
         return i18next_1.default.t(diffInDays === 1 ? "daysUntil.one" : "daysUntil.other", {
             count: diffInDays,
         });
-    if (diffInDays < 30)
+    if (diffInDays < _constants_1.MONTH_IN_DAYS)
         return i18next_1.default.t(diffInDays === 1 ? "weeksUntil.one" : "weeksUntil.other", {
-            count: Math.floor(diffInDays / 7),
+            count: Math.floor(diffInDays / _constants_1.WEEK_IN_DAYS),
         });
-    if (diffInDays < 365)
+    if (diffInDays < _constants_1.YEAR_IN_DAYS)
         return i18next_1.default.t(diffInDays === 1 ? "monthsUntil.one" : "monthsUntil.other", {
-            count: Math.floor(diffInDays / 30),
+            count: Math.floor(diffInDays / _constants_1.MONTH_IN_DAYS),
         });
-    if (diffInDays < 3650)
+    if (diffInDays < _constants_1.DECADE_IN_DAYS)
         return i18next_1.default.t(diffInDays === 1 ? "yearsUntil.one" : "yearsUntil.other", {
-            count: Math.floor(diffInDays / 365),
+            count: Math.floor(diffInDays / _constants_1.YEAR_IN_DAYS),
         });
-    if (diffInDays < 36500)
+    if (diffInDays < _constants_1.CENTURY_IN_DAYS)
         return i18next_1.default.t(diffInDays === 1 ? "decadesUntil.one" : "decadesUntil.other", {
-            count: Math.floor(diffInDays / 3650),
+            count: Math.floor(diffInDays / _constants_1.DECADE_IN_DAYS),
         });
-    if (diffInDays < 365000)
+    if (diffInDays < _constants_1.MILLENNIUM_IN_DAYS)
         return i18next_1.default.t(diffInDays === 1 ? "centuriesUntil.one" : "centuriesUntil.other", {
-            count: Math.floor(diffInDays / 36500),
+            count: Math.floor(diffInDays / _constants_1.CENTURY_IN_DAYS),
         });
     return i18next_1.default.t(diffInDays === 1 ? "millenniaUntil.one" : "millenniaUntil.other", {
-        count: Math.floor(diffInDays / 365000),
+        count: Math.floor(diffInDays / _constants_1.MILLENNIUM_IN_DAYS),
     });
 };
 exports.timeUntil = timeUntil;

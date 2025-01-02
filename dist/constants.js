@@ -1,6 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DAY_IN_SECONDS = exports.HOUR_IN_SECONDS = exports.MINUTE_IN_SECONDS = void 0;
+exports.MILLENNIUM_IN_DAYS = exports.CENTURY_IN_DAYS = exports.DECADE_IN_DAYS = exports.YEAR_IN_DAYS = exports.MONTH_IN_DAYS = exports.WEEK_IN_DAYS = exports.DAY_IN_SECONDS = exports.HOUR_IN_SECONDS = exports.MINUTE_IN_SECONDS = void 0;
 exports.MINUTE_IN_SECONDS = 60000;
 exports.HOUR_IN_SECONDS = 3600000;
 exports.DAY_IN_SECONDS = 86400000;
+exports.WEEK_IN_DAYS = 7;
+exports.MONTH_IN_DAYS = 30;
+exports.YEAR_IN_DAYS = 365;
+exports.DECADE_IN_DAYS = 3650;
+exports.CENTURY_IN_DAYS = 36500;
+exports.MILLENNIUM_IN_DAYS = 365000;
